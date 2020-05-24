@@ -19,6 +19,7 @@ img[alt="Logo"] {
     position: relative;
     top: 7px;
     margin: 10px;
+    width: 100px;
 }
 
 img+h1{
