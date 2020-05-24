@@ -1,0 +1,239 @@
+body {
+    width: 100%;
+    background-color: #DCDCDC;
+    text-align: left;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+        margin: 0;
+        height: 130px;
+        background-color: #1D1D1D;
+
+}
+
+img[alt="Logo"] {
+    position: relative;
+    top: 7px;
+    margin: 10px;
+}
+
+img+h1{
+    color: white;
+    position: absolute;
+    left: 115px;
+    top: 25px;
+    font-style: italic;
+}
+
+#Einkaufswagen {
+    background-color: #ff0000bd;
+    width: 230px;
+    height: 60px;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    bottom: 100px;
+    left: 80%;
+}
+
+#Einkaufswagen p{
+    font-size: 18px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+nav>p~img {
+    width: 50px;
+    position: relative;
+    bottom: 33px;
+    left:75%;
+}
+
+.subnav {
+    background-color: gray;
+    position: absolute;
+    top: 130px;
+    width: 100%;
+}
+
+.subnav p{
+    font-size: 15px;
+    width: 100px;
+    height: 20px;
+    background-color: #ff0000bd;
+    border-radius: 5px;
+    margin-left: 10px;
+    float: left;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.subnav p a {
+    color: black;
+    text-decoration: none;
+}
+
+.subnav p:hover {
+    background-color: gray;
+}
+
+main {
+    float: left;
+}
+
+h2 {
+    font-size: 40px;
+    position: relative;
+    top: 60px;
+    left: 25px;
+}
+
+.produkt {
+    display: inline-block;
+    text-align: center;
+    background-color:white;
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 50px;
+    border: 5px solid #5e2028;
+    border-radius: 10px;
+}
+
+div>p{ 
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.preis{
+    font-size: 15px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.beschreibung {
+    font-size: 15px;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.produkt img {
+    height: 400px;
+    width: auto;
+}
+
+button {
+    border-radius: 8px;
+    background-color: #ff0000;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+#impressum {
+    text-align: center;
+    font-style: italic;
+}
+
+/* Tablet (für 800px und 100px)*/
+@media screen and (max-width: 1024px) and (min-width: 600px){
+
+    #Einkaufswagen {
+        background-color: #ff0000bd;
+        width: 230px;
+        height: 60px;
+        border-radius: 5px;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: bolder;
+        position: relative;
+        bottom: 100px;
+        left: 70%;
+    }
+    
+    #Einkaufswagen p{
+        font-size: 18px;
+        position: relative;
+        top: 20px;
+        left: 10px;
+    }
+    
+    nav>p~img {
+        width: 50px;
+        position: relative;
+        bottom: 33px;
+        left:75%;
+    }
+
+    .produkt {
+        display: inline-block;
+        text-align: center;
+        background-color:white;
+        width: 40%;
+        margin-left: 15px;
+        margin-top: 50px;
+        border: 5px solid #5e2028;
+        border-radius: 10px;
+    }
+}
+
+/*Smartphone (für 300px)*/
+@media screen and (max-width: 600px){
+    #Einkaufswagen {
+        background-color: #ff0000bd;
+        width: 130px;
+        height: 40px;
+        border-radius: 5px;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: bolder;
+        position: relative;
+        bottom: 128px;
+        left: 55%;
+    }
+    
+    #Einkaufswagen p{
+        font-size: 10px;
+        position: relative;
+        top: 20px;
+        left: 10px;
+    }
+    
+    nav>p~img {
+        width: 30px;
+        position: relative;
+        bottom: 13px;
+        left:75%;
+    }
+
+    img+h1{
+        color: white;
+        position: absolute;
+        left: 115px;
+        top: 30px;
+        font-style: italic;
+        font-size: 25px;
+    }
+    .produkt {
+        display: inline-block;
+        text-align: center;
+        background-color:white;
+        width: 90%;
+        margin-left: 15px;
+        margin-top: 50px;
+        border: 5px solid #5e2028;
+        border-radius: 10px;
+    }
+    h2 {
+        font-size: 40px;
+        position: relative;
+        top: 70px;
+        left: 25px;
+    }
+}
