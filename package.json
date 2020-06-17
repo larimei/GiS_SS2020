@@ -1,0 +1,23 @@
+{
+  "name": "gis_ss2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "check-node-version": "^4.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Aufgabe08/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larimei/GiS_SS2020.git"
+  },
+  "author": "lara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larimei/GiS_SS2020/issues"
+  },
+  "homepage": "https://github.com/larimei/GiS_SS2020#readme"
+}
