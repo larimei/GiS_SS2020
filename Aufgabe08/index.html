@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+ <html lang="de">
+ <head>
+     <meta charset="UTF-8">
+     <title>Passierschein A38</title>
+     <link rel="stylesheet" href="style.css">
+     <script src = "script2.js" defer></script>
+ </head>
+ <body>
+<header>
+    <h1>Antragsformular für den Passierschein A38</h1>
+   </header>
+<main>
+    <form action = "https://gissose20.herokuapp.com/" target = "blank" method = "get" >
+       <label class="block" >Was ist Ihrer Ansicht nach die richtige Anzahl an Schafen? 
+          <br> (Bitte beachten Sie, dass Ziegen keine Schafe sind)</label>
+       <input type="number" name="schafe">
+       <label class="block" >Beschreiben Sie - in 4 Worten oder weniger - Ihre Meinung zur Plattentektonik.</label>
+       <input type="text" name="tektonik">
+       <label class="block" >Nennen Sie eine Ihrem Charakter entsprechende Salatsorte.</label>
+       <input type="text" name="salat">
+       <label class="block" >Können Sie fliegen?</label>
+       <div class="block" >
+       <input class="radio"type="radio" name="fliegen"> <label>Ja</label> </div>
+       <div class="block" >
+       <input type="radio" name="fliegen"> <label>Momentan nicht.</label></div>
+       <label class="block" >Führen Sie Waffen bei sich?</label>
+       <input type="radio" name="waffen"> <label>Schere</label>
+       <input type="radio" name="waffen"> <label>Stein</label>
+       <input type="radio" name="waffen"> <label>Papier</label>
+       <label class="block">Summen Sie die ersten 4 Strophen Ihres Lieblingsliedes.</label>
+       <div class="block">
+       <input type="checkbox" name="lied"> <label>Mhmmmm-mhmmmm</label></div>
+       <div class="block">
+       <input type="checkbox" name="lied"> <label>Wubdubdubdubdub</label></div>
+       <div class="block">
+       <input type="checkbox" name="lied"> <label>Aaaahhhh-naaaahhh</label></div>
+       <div class="block">
+       <input type="checkbox" name="lied"> <label>Ptzktzpztzktz</label></div>
+       <label class="block">Bitte kreuzen Sie dieses Feld an.</label>
+       <input type="checkbox" name="feld"> <label>Nein!</label>
+       <p>Der Antrag wird eingelesen und ist auch mit ihrer Unterschrift ungültig.</p>
+       <p>Eine Braille-Version dieses Formulars senden wir Ihnen auf gerne als PDF zu.</p>
+       <label class="block">Bitte fügen Sie folgendes hinzu:</label>
+       <div class="block">
+       <input type="file" name="blau"> <label>Blaues Formular von Schalter I</label></div>
+       <div class="block">
+       <input type="file" name="rosa"> <label>Rosa Formular von Schalter XII, Stiege B, Korridor J</label></div>
+       <div>
+       <input type="file" name="regenbogen"> <label>Regenbogen-Formular unterschrieben von einem Einhorn</label></div>
+       <div class="block">
+          <br>
+       <input type="checkbox" name="pflicht"> <label>Ich verzichte ausdrücklich auf die Entbindung von der Ausfüllungspflicht. (Pflichfeld)</label></div>
+       <br>
+       <button id="button" type="submit">Beantragen nach <br> Batman-Regelung</button>
+    </form>
+   </main>
+   <footer>
+
+   </footer>
+ </body>
+ </html>
