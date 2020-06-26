@@ -32,7 +32,7 @@ export namespace A09Server {
     let q: url.UrlWithParsedQuery = url.parse(_request.url, true);
 
 
-    if (q.pathname == "html") {
+    if (q.pathname == "/html") {
     for (let key in q.query) {
           _response.write(key + ": " + q.query[key] + "<br/>");
         }
