@@ -6,9 +6,11 @@
   "dependencies": {
     "check-node-version": "^4.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.0.14"
+  },
   "scripts": {
-    "start": "node Aufgabe08/script.js"
+    "start": "node Aufgabe09/server.js"
   },
   "repository": {
     "type": "git",

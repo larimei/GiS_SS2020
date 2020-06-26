@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="de">
+ <head>
+     <meta charset="UTF-8">
+     <title>Passierschein A38</title>
+     <link rel="stylesheet" href="style.css">
+     <script src = "client.js" defer></script>
+ </head>
+ <body>
+<header>
+    <h1>Antragsformular für den Passierschein A38</h1>
+   </header>
+<main>
+    <form action = "https://gissose20.herokuapp.com/" target = "blank" method = "get" >
+       <label class="block" >Was ist Ihrer Ansicht nach die richtige Anzahl an Schafen? 
+          <br> (Bitte beachten Sie, dass Ziegen keine Schafe sind)</label>
+       <input type="number" name="schafe">
+       <label class="block" >Beschreiben Sie - in 4 Worten oder weniger - Ihre Meinung zur Plattentektonik.</label>
+       <input type="text" name="tektonik">
+       <label class="block" >Nennen Sie eine Ihrem Charakter entsprechende Salatsorte.</label>
+       <input type="text" name="salat">
+       <br>
+       <br>
+       <button id="buttonHTML" type="button">HTML</button> 
+       <button id="buttonJSON" type="button">JSON</button>
+    </form>
+    <div id = "Response"></div>
+   </main>
+   <footer>
+
+   </footer>
+ </body>
+ </html>
