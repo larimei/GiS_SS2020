@@ -11,19 +11,19 @@
     <h1>Antragsformular für den Passierschein A38</h1>
    </header>
 <main>
-    <form action = "https://gissose20.herokuapp.com/" target = "blank" method = "get" >
-       <label class="block" >Was ist Ihrer Ansicht nach die richtige Anzahl an Schafen? 
-          <br> (Bitte beachten Sie, dass Ziegen keine Schafe sind)</label>
+    <form action = "https://gissose20.herokuapp.com" target = "blank" method = "get" >
+       <label class="block" >Name</label>
        <input type="text" name="name">
-       <label class="block" >Beschreiben Sie - in 4 Worten oder weniger - Ihre Meinung zur Plattentektonik.</label>
+       <label class="block" >Firstname</label>
        <input type="text" name="firstname">
-       <label class="block" >Nennen Sie eine Ihrem Charakter entsprechende Salatsorte.</label>
+       <label class="block" >Registrationnumber</label>
        <input type="text" name="registration">
        <br>
        <br>
-       <button id="buttonHTML" type="submit">HTML</button> 
+       <button id="buttonSenden" type="reset">Daten senden</button> 
+       <button id="buttonAuslesen" type="reset">Daten einlesen</button>
     </form>
-    <div id = "Response"></div>
+    <div id = "response"></div>
    </main>
    <footer>
 
