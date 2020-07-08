@@ -42,7 +42,7 @@ export namespace Aufgabe11server {
     console.log("Listening"); 
   }
 
-  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     console.log("I hear voices!");
     console.log(_request.url);
 
@@ -51,16 +51,30 @@ export namespace Aufgabe11server {
 
     if (_request.url) {
       let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-      for (let key in q.query) {
-        _response.write(key + ": " + q.query[key] + "<br/>");
+   
+      if (q.pathname == "/senden")
+      students.insertOne(q.query);
+     
+      if (q.pathname == "/auslesen")
+      _response.write(await retrieveOrders());
 
-      }
-      let jsonString: string = JSON.stringify(q.query);
-      _response.write(jsonString);
+      console.log("hallo");
 
-      students.insert(q.query);
     }
 
     _response.end(); }
+  
+  async function retrieveOrders(): Promise<string> {
+    let datenKriegen: Mongo.Cursor<string> = students.find();
+    let arrayOrders: string[] = await datenKriegen.toArray();
+    
+    let jsonString: string = JSON.stringify(arrayOrders);
+
+    console.log(jsonString);
+   
+
+    return jsonString;
+  }
+
 }
 
