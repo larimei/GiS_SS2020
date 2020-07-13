@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hauptseite</title>
     <link rel="stylesheet" href="styles.css">
+    <script src = "studiumchatClient.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,17 +16,24 @@
             <a href="freizeitschat.html" >Freizeitschat</a>
             <a href="langeweilechat.html" >Langeweilechat</a>
             <a href="einstellungen.html" >Profileinstellungen</a>
-            <a href="login.html" >Abmelden</a>
+            <a href="login.html" id="abmelden">Abmelden</a>
         </div>
         </div>
 
     </header>
     <body>
-        <div id="registration">  </div>
+        <div id="chatBox">  
+            <div class = "fremdNachricht">
+                <p class = "bothName">Bot</p>
+                <p class ="bothMessage">Willkommen am Anfang des Studiumkanals. Chatte über alle studiumrelevanten Themen.</p>
+              </div>
+        
+        </div>
             <div  class="eingabe">
-                <form>
-                    <input type="text" name="username" placeholder="Hier eintippen!">
-                    <button class="senden" type="button">Senden</button>
+                <form action="http://localhost:8100" method="get" target="blank"> 
+                    <input type="text" name="message" placeholder="Hier eintippen!" id="studiumText">
+                    <input type="text" name="username" id ="studiumUsername">
+                    <button class="senden" type="submit" id="studiumSenden">Senden</button>
                 </form>
             </div>
        

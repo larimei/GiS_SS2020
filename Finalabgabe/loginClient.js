@@ -7,12 +7,15 @@ var Finalabgabe;
         let userNameValue = document.getElementById("usernameLogin").value;
         let passwordValue = document.getElementById("passwordLogin").value;
         let formData = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         let response = await fetch(url + "/login" + "?" + query.toString());
         let notExisting = await response.text();
-        Finalabgabe.registrationValid(userNameValue, passwordValue, notExisting, "errorLogin");
+        console.log(notExisting);
+        if (Finalabgabe.registrationValid(userNameValue, passwordValue, notExisting, "errorLogin")) {
+            localStorage.setItem("Username", userNameValue);
+        }
     }
 })(Finalabgabe || (Finalabgabe = {}));
 //# sourceMappingURL=loginClient.js.map

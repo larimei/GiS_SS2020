@@ -8,6 +8,7 @@ var FinalabgabeServer;
 (function (FinalabgabeServer) {
     console.log("Starting server");
     let registrations;
+    let studiumsChat;
     let urlMongo = "mongodb+srv://user:hallo@gisvonlara.clsfx.mongodb.net/Finalabgabe?retryWrites=true&w=majority";
     let mongoClient;
     let port = Number(process.env.PORT);
@@ -39,10 +40,9 @@ var FinalabgabeServer;
         if (_request.url) {
             let q = Url.parse(_request.url, true);
             console.log("Kriege Daten");
-            _response.write("meowejg");
             if (q.pathname == "/registration") {
                 registrations = mongoClient.db("Finalabgabe").collection("Registrierungen");
-                console.log("Datbase Connection regsitration", registrations != undefined);
+                console.log("Database Connection registration", registrations != undefined);
                 if (await retrieveRegistrations(q.query)) {
                     registrations.insertOne(q.query);
                 }
@@ -53,10 +53,19 @@ var FinalabgabeServer;
             if (q.pathname == "/login") {
                 registrations = mongoClient.db("Finalabgabe").collection("Registrierungen");
                 console.log("Datbase Connection login", registrations != undefined);
-                if (userValid(q.query))
+                if (await userValid(q.query)) {
                     _response.write("true");
-                else
+                }
+                else {
                     _response.write("false");
+                }
+            }
+            if (q.pathname == "/studiumSenden") {
+                studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
+                studiumsChat.insertOne(q.query);
+            }
+            if (q.pathname == "/studiumAuslesen") {
+                _response.write(await retrieveMessages());
             }
         }
         _response.end();
@@ -74,21 +83,30 @@ var FinalabgabeServer;
         }
         return nameNotExisting;
     }
+    async function retrieveMessages() {
+        studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
+        console.log("Database Connection chat", studiumsChat != undefined);
+        let getData = studiumsChat.find();
+        let arrayOrders = await getData.toArray();
+        let jsonString = JSON.stringify(arrayOrders);
+        return jsonString;
+    }
     async function userValid(_query) {
         let actualUser = registrations.find({ "username": _query.username });
         let actualPassword = registrations.find({ "password": _query.password });
+        let userValid;
         let arrayUser = await actualUser.toArray();
         let arrayPassword = await actualPassword.toArray();
         console.log("Funktion aufgerufen");
-        console.log("" + arrayUser + arrayPassword);
         if (JSON.stringify(arrayUser) == JSON.stringify(arrayPassword) && arrayUser.length != 0) {
             console.log("true" + JSON.stringify(arrayUser) + JSON.stringify(arrayPassword));
-            return true;
+            userValid = true;
         }
         else {
             console.log("false" + JSON.stringify(arrayUser) + JSON.stringify(arrayPassword));
-            return false;
+            userValid = false;
         }
+        return userValid;
     }
 })(FinalabgabeServer = exports.FinalabgabeServer || (exports.FinalabgabeServer = {}));
 //# sourceMappingURL=server.js.map
