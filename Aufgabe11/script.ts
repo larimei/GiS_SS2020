@@ -65,8 +65,8 @@ export namespace Aufgabe11server {
     _response.end(); }
   
   async function retrieveOrders(): Promise<string> {
-    let datenKriegen: Mongo.Cursor<string> = students.find();
-    let arrayOrders: string[] = await datenKriegen.toArray();
+   // let datenKriegen: Mongo.Cursor<string> = students.find();
+    let arrayOrders: string[] = await students.find().toArray();
     
     let jsonString: string = JSON.stringify(arrayOrders);
 

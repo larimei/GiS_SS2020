@@ -46,8 +46,8 @@ var Aufgabe11server;
         _response.end();
     }
     async function retrieveOrders() {
-        let datenKriegen = students.find();
-        let arrayOrders = await datenKriegen.toArray();
+        // let datenKriegen: Mongo.Cursor<string> = students.find();
+        let arrayOrders = await students.find().toArray();
         let jsonString = JSON.stringify(arrayOrders);
         console.log(jsonString);
         return jsonString;
