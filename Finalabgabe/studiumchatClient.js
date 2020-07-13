@@ -7,10 +7,10 @@ var Finalabgabe;
     let messageArray = [];
     let objDiv = document.getElementById("chatBox");
     objDiv.scrollTop = objDiv.scrollHeight;
-    let userName = document.getElementById("studiumUsername");
-    userName.value = localStorage.getItem("Username");
     let sendenButton = document.getElementById("studiumSenden");
     sendenButton.addEventListener("click", handleSenden);
+    let userName = document.getElementById("studiumUsername");
+    let name = localStorage.getItem("Username");
     let x = true;
     let parent = document.createElement("div");
     let abmelden = document.getElementById("abmelden");
@@ -19,6 +19,7 @@ var Finalabgabe;
     });
     setInterval(communicate, 1000);
     async function handleSenden() {
+        userName.value = name;
         let formData = new FormData(document.forms[0]);
         let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any

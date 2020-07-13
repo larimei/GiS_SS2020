@@ -14,11 +14,11 @@ namespace Finalabgabe {
     let objDiv: HTMLElement = document.getElementById("chatBox") as HTMLDivElement;
     objDiv.scrollTop = objDiv.scrollHeight;
 
-    let userName: HTMLInputElement = document.getElementById("studiumUsername") as HTMLInputElement;
-    userName.value = <string>localStorage.getItem("Username");
-
     let sendenButton: HTMLButtonElement = document.getElementById("studiumSenden") as HTMLButtonElement;
     sendenButton.addEventListener("click", handleSenden);
+
+    let userName: HTMLInputElement = document.getElementById("studiumUsername") as HTMLInputElement;
+    let name: string = <string>localStorage.getItem("Username");
 
     let x: boolean = true;
 
@@ -33,6 +33,7 @@ namespace Finalabgabe {
     setInterval(communicate, 1000);
 
     async function handleSenden(): Promise<void> {
+        userName.value = name;
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
