@@ -9,6 +9,7 @@ export namespace FinalabgabeServer {
 
     let registrations: Mongo.Collection;
     let studiumsChat: Mongo.Collection;
+    let freizeitsChat: Mongo.Collection;
     let urlMongo: string = "mongodb+srv://user:hallo@gisvonlara.clsfx.mongodb.net/Finalabgabe?retryWrites=true&w=majority";
     let mongoClient: Mongo.MongoClient;
     
@@ -79,7 +80,17 @@ export namespace FinalabgabeServer {
              studiumsChat.insertOne(q.query); }
 
           if (q.pathname == "/studiumAuslesen") {
-            _response.write(await retrieveMessages()) ;
+            studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
+            _response.write(await retrieveMessages(studiumsChat));
+          }
+          if (q.pathname == "/freizeitSenden") {
+            freizeitsChat = mongoClient.db("Finalabgabe").collection("Freizeitschat");
+            freizeitsChat.insertOne(q.query);
+          }
+          if (q.pathname == "/freizeitAuslesen") {
+            freizeitsChat = mongoClient.db("Finalabgabe").collection("Freizeitschat");
+            _response.write(await retrieveMessages(freizeitsChat));
+
           }
           }
 
@@ -106,12 +117,9 @@ export namespace FinalabgabeServer {
         return nameNotExisting;
    }
 
-    async function retrieveMessages(): Promise<string> {
+    async function retrieveMessages(_chat: Mongo.Collection): Promise<string> {
 
-      studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
-      console.log("Database Connection chat", studiumsChat != undefined);
-
-      let getData: Mongo.Cursor<string> = studiumsChat.find();
+      let getData: Mongo.Cursor<string> = _chat.find();
       let arrayOrders: string[] = await getData.toArray();
 
       let jsonString: string = JSON.stringify(arrayOrders);

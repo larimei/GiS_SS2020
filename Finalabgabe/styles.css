@@ -155,17 +155,44 @@ footer {
     width: 99.3%;
 }
 
+.emoji {
+    background-color: rgb(39, 4, 65);
+    color: white;
+    display: inline-block;
+    position: absolute;
+    height: 47px;
+    width: 70px;
+    margin-top: -47px;
+    margin-left: 33.3%;
+    border: black 5px solid;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.emoji:hover {
+    border: rgb(39, 4, 65) 5px solid;
+    background-color: black;
+}
+
 #studiumUsername {
     display: none;
 }
 
-.eingabe button {
+.senden {
+    background-color: rgb(39, 4, 65);
+    color: white;
     display: inline-block;
     position: absolute;
-    height: 47.5px;
+    height: 47px;
     margin-top: -47px;
     margin-left: 42%;
+    border: black 5px solid;
+    border-radius: 0px 5px 5px 0px;
 
+}
+
+.senden:hover {
+    border: rgb(39, 4, 65) 5px solid;
+    background-color: black;
 }
 
 .fremdNachricht {
@@ -186,7 +213,7 @@ footer {
 
 .bothMessage {
     margin: 5px;
-
+    padding-bottom: 10px;
 }
 
 .eigenNachricht {

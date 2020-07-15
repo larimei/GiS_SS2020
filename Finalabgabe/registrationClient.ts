@@ -8,7 +8,7 @@ namespace Finalabgabe {
         let passwordValue: string = (<HTMLInputElement>document.getElementById("password")).value;
     
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gissose20.herokuapp.com";
+        let url: string = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         let response: Response = await fetch(url  + "/registration" + "?" + query.toString());
@@ -18,6 +18,19 @@ namespace Finalabgabe {
         if (registrationValid(userNameValue, passwordValue, notExisting, "error")) {
             localStorage.setItem("Username", userNameValue);
         }   
+    }
+
+    function registrationValid(_userNameValue: string, _passwordValue: string, _notExisting: string, _error: string): boolean {
+
+        if (_userNameValue != "" && _passwordValue != "" && _notExisting != "false") {
+            location.href = "chatseite.html"; 
+            return true;
+        }
+        else {
+            let errorHTML: HTMLElement = document.getElementById(_error) as HTMLDivElement;
+            errorHTML.style.display = "inline-block";
+            return false;
+        } 
     }
 
 

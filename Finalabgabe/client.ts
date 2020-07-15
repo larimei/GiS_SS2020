@@ -1,16 +1,21 @@
 namespace Finalabgabe {
-
-export function registrationValid(_userNameValue: string, _passwordValue: string, _notExisting: string, _error: string): boolean {
-
-    if (_userNameValue != "" && _passwordValue != "" && _notExisting != "false") {
-        location.href = "chatseite.html"; 
-        return true;
+if (localStorage.getItem("Username") == undefined) {
+        location.href = "login.html";
     }
-    else {
-        let errorHTML: HTMLElement = document.getElementById(_error) as HTMLDivElement;
-        errorHTML.style.display = "inline-block";
-        return false;
-    } 
+
+let studium: HTMLElement = document.getElementById("stchat") as HTMLElement;
+studium.addEventListener("click", handleStChat);
+let freizeit: HTMLElement = document.getElementById("fzchat") as HTMLElement;
+freizeit.addEventListener("click", handleFzChat);
+
+function handleStChat(): void {
+    localStorage.setItem("Chat", "Studiumschat");
+    location.href = "studiumschat.html";
+}
+
+function handleFzChat(): void {
+    localStorage.setItem("Chat", "Freizeitschat");
+    location.href = "studiumschat.html";
 }
 
 }

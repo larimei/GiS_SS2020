@@ -6,9 +6,19 @@ var Finalabgabe;
     }
     let messageArray = [];
     let objDiv = document.getElementById("chatBox");
-    objDiv.scrollTop = objDiv.scrollHeight;
     let sendenButton = document.getElementById("studiumSenden");
     sendenButton.addEventListener("click", handleSenden);
+    let chat = "";
+    let auslesen = "";
+    if (localStorage.getItem("Chat") == "Studiumschat") {
+        chat = "/studiumSenden";
+        auslesen = "/studiumAuslesen";
+    }
+    else {
+        chat = "/freizeitSenden";
+        auslesen = "/freizeitAuslesen";
+    }
+    console.log(localStorage.getItem("Chat"));
     let userName = document.getElementById("studiumUsername");
     let name = localStorage.getItem("Username");
     let x = true;
@@ -21,18 +31,19 @@ var Finalabgabe;
     async function handleSenden() {
         userName.value = name;
         let formData = new FormData(document.forms[0]);
-        let url = "https://gissose20.herokuapp.com";
+        let url = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        await fetch(url + "/studiumSenden" + "?" + query.toString());
+        await fetch(url + chat + "?" + query.toString());
         console.log("Daten gesendet");
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
     async function communicate() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://gissose20.herokuapp.com";
+        let url = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        let antwort = await fetch(url + "/studiumAuslesen" + "?" + query.toString());
+        let antwort = await fetch(url + auslesen + "?" + query.toString());
         messageArray = await antwort.json();
         retrieveData();
     }
@@ -43,7 +54,6 @@ var Finalabgabe;
             console.log("true");
         }
         else {
-            //objDiv.removeChild(parent);
             parent.remove();
             parent = leer;
             objDiv.appendChild(parent);

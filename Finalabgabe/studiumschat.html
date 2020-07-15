@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <title>Hauptseite</title>
     <link rel="stylesheet" href="styles.css">
-    <script src = "studiumchatClient.js" defer></script>
+    <script src="studiumchatClient.js" defer></script>
 </head>
+
 <body>
     <header>
         <img src="Bilder/finallogo2.png" alt="Logo" width="300px">
-        <div class="titel">Studiumschat</div>
-        <div class ="dropdown"><p>Menü</p>
-        <div class="dropdownContent">
-            <a href="studiumschat.html" >Studiumschat</a>
-            <a href="freizeitschat.html" >Freizeitschat</a>
-            <a href="langeweilechat.html" >Langeweilechat</a>
-            <a href="einstellungen.html" >Profileinstellungen</a>
-            <a href="login.html" id="abmelden">Abmelden</a>
-        </div>
+        <div class="titel">Chat</div>
+        <div class="dropdown">
+            <p>Menü</p>
+            <div class="dropdownContent">
+                <a href="studiumschat.html">Studiumschat</a>
+                <a href="freizeitschat.html">Freizeitschat</a>
+                <a href="langeweilechat.html">Langeweilechat</a>
+                <a href="einstellungen.html">Profileinstellungen</a>
+                <a href="login.html" id="abmelden">Abmelden</a>
+            </div>
         </div>
 
     </header>
+
     <body>
-        <div id="chatBox">  
-            <div class = "fremdNachricht">
-                <p class = "bothName">Bot</p>
-                <p class ="bothMessage">Willkommen am Anfang des Studiumkanals. Chatte über alle studiumrelevanten Themen.</p>
-              </div>
-        
-        </div>
-            <div  class="eingabe">
-                <form action="https://gissose20.herokuapp.com" method="get" target="blank"> 
-                    <input type="text" name="message" placeholder="Hier eintippen!" id="studiumText">
-                    <input type="text" name="username" id ="studiumUsername">
-                    <button class="senden" type="reset" id="studiumSenden">Senden</button>
-                </form>
+        <div id="chatBox">
+            <div class="fremdNachricht">
+                <p class="bothName">Bot</p>
+                <p class="bothMessage">Willkommen am Anfang des Chats.</p>
             </div>
-       
+
+        </div>
+        <div class="eingabe">
+            <form action="http://localhost:8100" method="get" target="blank">
+                <input type="text" name="message" placeholder="Hier eintippen!" id="studiumText">
+                <input type="text" name="username" id="studiumUsername">
+                <button class="senden" type="reset" id="studiumSenden">Senden</button>
+            </form>
+            <button class="emoji">Emoji</button>
+        </div>
+
     </body>
     <footer>
         <p>Lara Meister © 2020</p>
 
     </footer>
-    
+
 </body>
+
 </html>

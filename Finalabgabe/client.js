@@ -1,17 +1,20 @@
 "use strict";
 var Finalabgabe;
 (function (Finalabgabe) {
-    function registrationValid(_userNameValue, _passwordValue, _notExisting, _error) {
-        if (_userNameValue != "" && _passwordValue != "" && _notExisting != "false") {
-            location.href = "chatseite.html";
-            return true;
-        }
-        else {
-            let errorHTML = document.getElementById(_error);
-            errorHTML.style.display = "inline-block";
-            return false;
-        }
+    if (localStorage.getItem("Username") == undefined) {
+        location.href = "login.html";
     }
-    Finalabgabe.registrationValid = registrationValid;
+    let studium = document.getElementById("stchat");
+    studium.addEventListener("click", handleStChat);
+    let freizeit = document.getElementById("fzchat");
+    freizeit.addEventListener("click", handleFzChat);
+    function handleStChat() {
+        localStorage.setItem("Chat", "Studiumschat");
+        location.href = "studiumschat.html";
+    }
+    function handleFzChat() {
+        localStorage.setItem("Chat", "Freizeitschat");
+        location.href = "studiumschat.html";
+    }
 })(Finalabgabe || (Finalabgabe = {}));
 //# sourceMappingURL=client.js.map

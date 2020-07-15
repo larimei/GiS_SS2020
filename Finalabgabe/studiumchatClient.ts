@@ -12,10 +12,23 @@ namespace Finalabgabe {
     let messageArray: WholeMessage[] = [];
 
     let objDiv: HTMLElement = document.getElementById("chatBox") as HTMLDivElement;
-    objDiv.scrollTop = objDiv.scrollHeight;
 
     let sendenButton: HTMLButtonElement = document.getElementById("studiumSenden") as HTMLButtonElement;
     sendenButton.addEventListener("click", handleSenden);
+
+    let chat: string = "";
+    let auslesen: string = "";
+
+    if (localStorage.getItem("Chat") == "Studiumschat") {
+       chat = "/studiumSenden";
+       auslesen = "/studiumAuslesen"; 
+    }
+       else {
+       chat = "/freizeitSenden";
+       auslesen = "/freizeitAuslesen";
+       }
+
+    console.log(localStorage.getItem("Chat"));
 
     let userName: HTMLInputElement = document.getElementById("studiumUsername") as HTMLInputElement;
     let name: string = <string>localStorage.getItem("Username");
@@ -35,21 +48,22 @@ namespace Finalabgabe {
     async function handleSenden(): Promise<void> {
         userName.value = name;
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gissose20.herokuapp.com";
+        let url: string = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        await fetch(url + "/studiumSenden" + "?" + query.toString());
+        await fetch(url + chat + "?" + query.toString());
     
         console.log("Daten gesendet");
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
 
     async function communicate(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gissose20.herokuapp.com";
+        let url: string = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        let antwort: Response = await fetch(url + "/studiumAuslesen" + "?" + query.toString());
+        let antwort: Response = await fetch(url + auslesen + "?" + query.toString());
         messageArray = await antwort.json();
 
         retrieveData();
@@ -64,7 +78,6 @@ namespace Finalabgabe {
             console.log("true");
             }
         else {
-                //objDiv.removeChild(parent);
                 parent.remove();
                 parent = leer;
                 objDiv.appendChild(parent);

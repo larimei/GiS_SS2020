@@ -9,6 +9,7 @@ var FinalabgabeServer;
     console.log("Starting server");
     let registrations;
     let studiumsChat;
+    let freizeitsChat;
     let urlMongo = "mongodb+srv://user:hallo@gisvonlara.clsfx.mongodb.net/Finalabgabe?retryWrites=true&w=majority";
     let mongoClient;
     let port = Number(process.env.PORT);
@@ -65,7 +66,16 @@ var FinalabgabeServer;
                 studiumsChat.insertOne(q.query);
             }
             if (q.pathname == "/studiumAuslesen") {
-                _response.write(await retrieveMessages());
+                studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
+                _response.write(await retrieveMessages(studiumsChat));
+            }
+            if (q.pathname == "/freizeitSenden") {
+                freizeitsChat = mongoClient.db("Finalabgabe").collection("Freizeitschat");
+                freizeitsChat.insertOne(q.query);
+            }
+            if (q.pathname == "/freizeitAuslesen") {
+                freizeitsChat = mongoClient.db("Finalabgabe").collection("Freizeitschat");
+                _response.write(await retrieveMessages(freizeitsChat));
             }
         }
         _response.end();
@@ -83,10 +93,8 @@ var FinalabgabeServer;
         }
         return nameNotExisting;
     }
-    async function retrieveMessages() {
-        studiumsChat = mongoClient.db("Finalabgabe").collection("Studiumschat");
-        console.log("Database Connection chat", studiumsChat != undefined);
-        let getData = studiumsChat.find();
+    async function retrieveMessages(_chat) {
+        let getData = _chat.find();
         let arrayOrders = await getData.toArray();
         let jsonString = JSON.stringify(arrayOrders);
         return jsonString;
