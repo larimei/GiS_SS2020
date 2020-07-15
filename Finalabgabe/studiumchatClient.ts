@@ -48,7 +48,7 @@ namespace Finalabgabe {
     async function handleSenden(): Promise<void> {
         userName.value = name;
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "http://localhost:8100";
+        let url: string = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         await fetch(url + chat + "?" + query.toString());
@@ -59,7 +59,7 @@ namespace Finalabgabe {
 
     async function communicate(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "http://localhost:8100";
+        let url: string = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
@@ -75,13 +75,11 @@ namespace Finalabgabe {
 
         if (x == true) {
             objDiv.appendChild(parent);
-            console.log("true");
             }
         else {
                 parent.remove();
                 parent = leer;
                 objDiv.appendChild(parent);
-                console.log("jep ist in false");
                 
             }
 

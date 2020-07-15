@@ -4,6 +4,10 @@ var Finalabgabe;
     if (localStorage.getItem("Username") == undefined) {
         location.href = "login.html";
     }
+    let abmelden = document.getElementById("abmelden");
+    abmelden.addEventListener("click", function () {
+        localStorage.clear();
+    });
     let studium = document.getElementById("stchat");
     studium.addEventListener("click", handleStChat);
     let freizeit = document.getElementById("fzchat");

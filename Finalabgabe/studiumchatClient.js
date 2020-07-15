@@ -31,7 +31,7 @@ var Finalabgabe;
     async function handleSenden() {
         userName.value = name;
         let formData = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         await fetch(url + chat + "?" + query.toString());
@@ -40,7 +40,7 @@ var Finalabgabe;
     }
     async function communicate() {
         let formData = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         let antwort = await fetch(url + auslesen + "?" + query.toString());
@@ -51,13 +51,11 @@ var Finalabgabe;
         let leer = document.createElement("div");
         if (x == true) {
             objDiv.appendChild(parent);
-            console.log("true");
         }
         else {
             parent.remove();
             parent = leer;
             objDiv.appendChild(parent);
-            console.log("jep ist in false");
         }
         console.log(messageArray);
         for (let i = 0; i < messageArray.length; i++) {

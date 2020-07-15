@@ -3,6 +3,11 @@ if (localStorage.getItem("Username") == undefined) {
         location.href = "login.html";
     }
 
+let abmelden: HTMLElement = document.getElementById("abmelden") as HTMLElement;
+abmelden.addEventListener("click", function(): void {
+        localStorage.clear();
+        });
+
 let studium: HTMLElement = document.getElementById("stchat") as HTMLElement;
 studium.addEventListener("click", handleStChat);
 let freizeit: HTMLElement = document.getElementById("fzchat") as HTMLElement;
