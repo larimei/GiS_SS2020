@@ -40,7 +40,42 @@ namespace Finalabgabe {
     let abmelden: HTMLElement = document.getElementById("abmelden") as HTMLElement;
     abmelden.addEventListener("click", function(): void {
         localStorage.clear();
+        location.href = "login.html";
         });
+
+    let fzChatDropDown: HTMLElement = document.getElementById("fzChatDropDown") as HTMLElement;
+    fzChatDropDown.addEventListener("click", handleFzChat);
+        
+    let stChatDropDOwn: HTMLElement = document.getElementById("stChatDropDown") as HTMLElement;
+    stChatDropDOwn.addEventListener("click", handleStChat);
+
+    document.getElementById("smile")?.addEventListener("click", handleEmoji);
+    document.getElementById("laugh")?.addEventListener("click", handleEmoji);
+    document.getElementById("angel")?.addEventListener("click", handleEmoji);
+    document.getElementById("blink")?.addEventListener("click", handleEmoji);
+    document.getElementById("heart")?.addEventListener("click", handleEmoji);
+    document.getElementById("sweet")?.addEventListener("click", handleEmoji);
+    document.getElementById("kiss")?.addEventListener("click", handleEmoji);
+    document.getElementById("funny")?.addEventListener("click", handleEmoji);
+    document.getElementById("party")?.addEventListener("click", handleEmoji);
+    document.getElementById("beer")?.addEventListener("click", handleEmoji);
+
+    let text: HTMLInputElement = document.getElementById("studiumText") as HTMLInputElement;
+
+    function handleEmoji(_event: Event): void {
+        let emoji: HTMLElement = (<HTMLElement>_event.target);
+        text.value += emoji.innerText;
+   }
+
+    function handleStChat(): void {
+        localStorage.setItem("Chat", "Studiumschat");
+        location.href = "studiumschat.html";
+    }
+    
+    function handleFzChat(): void {
+        localStorage.setItem("Chat", "Freizeitschat");
+        location.href = "studiumschat.html";
+    }
 
     
     setInterval(communicate, 1000);

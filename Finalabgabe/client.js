@@ -7,7 +7,12 @@ var Finalabgabe;
     let abmelden = document.getElementById("abmelden");
     abmelden.addEventListener("click", function () {
         localStorage.clear();
+        location.href = "login.html";
     });
+    let fzChatDropDown = document.getElementById("fzChatDropDown");
+    fzChatDropDown.addEventListener("click", handleFzChat);
+    let stChatDropDOwn = document.getElementById("stChatDropDown");
+    stChatDropDOwn.addEventListener("click", handleStChat);
     let studium = document.getElementById("stchat");
     studium.addEventListener("click", handleStChat);
     let freizeit = document.getElementById("fzchat");

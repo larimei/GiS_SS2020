@@ -173,6 +173,27 @@ footer {
     background-color: black;
 }
 
+.auswahl {
+    display: none;
+    position: absolute;
+    margin-top: -91px;
+    margin-left: 200px;
+    background-color: rgb(39, 4, 65);
+    width: 200px;
+}
+
+.auswahl a {
+    margin: 5px;
+}
+
+.auswahl a:hover {
+    cursor: pointer;
+}
+
+.together:hover .auswahl {
+    display: inline-block;
+}
+
 #studiumUsername {
     display: none;
 }
@@ -244,7 +265,7 @@ footer {
     position: absolute;
     background-color: black;
     width: 300px;
-    height: 300px;
+    height: 200px;
     margin-top: -9px;
     margin-left: -68px;
     padding-left: 40px;
@@ -253,7 +274,9 @@ footer {
 }
 
 
-.dropdownContent a {
+.dropdownContent button {
+    background: none;
+    border: none;
     display: block;
     text-decoration: none;
     color:white;
@@ -261,7 +284,7 @@ footer {
     padding: 18px 20px;
 }
 
-.dropdownContent a:hover {
+.dropdownContent button:hover {
     background-color: rgb(39, 4, 65);
     margin-left: -20px;
     width: 250px;

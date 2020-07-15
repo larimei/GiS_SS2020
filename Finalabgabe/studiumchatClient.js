@@ -26,7 +26,35 @@ var Finalabgabe;
     let abmelden = document.getElementById("abmelden");
     abmelden.addEventListener("click", function () {
         localStorage.clear();
+        location.href = "login.html";
     });
+    let fzChatDropDown = document.getElementById("fzChatDropDown");
+    fzChatDropDown.addEventListener("click", handleFzChat);
+    let stChatDropDOwn = document.getElementById("stChatDropDown");
+    stChatDropDOwn.addEventListener("click", handleStChat);
+    document.getElementById("smile")?.addEventListener("click", handleEmoji);
+    document.getElementById("laugh")?.addEventListener("click", handleEmoji);
+    document.getElementById("angel")?.addEventListener("click", handleEmoji);
+    document.getElementById("blink")?.addEventListener("click", handleEmoji);
+    document.getElementById("heart")?.addEventListener("click", handleEmoji);
+    document.getElementById("sweet")?.addEventListener("click", handleEmoji);
+    document.getElementById("kiss")?.addEventListener("click", handleEmoji);
+    document.getElementById("funny")?.addEventListener("click", handleEmoji);
+    document.getElementById("party")?.addEventListener("click", handleEmoji);
+    document.getElementById("beer")?.addEventListener("click", handleEmoji);
+    let text = document.getElementById("studiumText");
+    function handleEmoji(_event) {
+        let emoji = _event.target;
+        text.value += emoji.innerText;
+    }
+    function handleStChat() {
+        localStorage.setItem("Chat", "Studiumschat");
+        location.href = "studiumschat.html";
+    }
+    function handleFzChat() {
+        localStorage.setItem("Chat", "Freizeitschat");
+        location.href = "studiumschat.html";
+    }
     setInterval(communicate, 1000);
     async function handleSenden() {
         userName.value = name;
