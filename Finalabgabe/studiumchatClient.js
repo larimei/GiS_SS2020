@@ -94,7 +94,6 @@ var Finalabgabe;
             parent = leer;
             objDiv.appendChild(parent);
         }
-        console.log(messageArray);
         for (let i = 0; i < messageArray.length; i++) {
             let div = document.createElement("div");
             let pDate = document.createElement("p");

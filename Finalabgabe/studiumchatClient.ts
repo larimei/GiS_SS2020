@@ -131,8 +131,6 @@ namespace Finalabgabe {
                 
             }
 
-        console.log(messageArray);
-
         for (let i: number = 0; i < messageArray.length; i++) {
             let div: HTMLDivElement = document.createElement("div");
 
