@@ -73,6 +73,9 @@ var Finalabgabe;
         }, 1010);
     }
     async function communicate() {
+        if (localStorage.getItem("Username") == undefined) { //schaut ob man angemeldet ist
+            location.href = "login.html";
+        }
         let formData = new FormData(document.forms[0]);
         let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any

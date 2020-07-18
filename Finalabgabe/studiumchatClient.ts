@@ -103,6 +103,9 @@ namespace Finalabgabe {
     }
 
     async function communicate(): Promise<void> {
+        if (localStorage.getItem("Username") == undefined) {   //schaut ob man angemeldet ist
+            location.href = "login.html";
+        }    
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
