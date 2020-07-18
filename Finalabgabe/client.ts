@@ -1,5 +1,5 @@
 namespace Finalabgabe {
-if (localStorage.getItem("Username") == undefined) {
+if (localStorage.getItem("Username") == undefined) {                //prüft ob man angemeldet ist -> wenn nicht, wird man von Seite geschmissen
         location.href = "login.html";
     }
 
@@ -12,15 +12,16 @@ abmelden.addEventListener("click", function(): void {
 let fzChatDropDown: HTMLElement = document.getElementById("fzChatDropDown") as HTMLElement;
 fzChatDropDown.addEventListener("click", handleFzChat);
 
-let stChatDropDOwn: HTMLElement = document.getElementById("stChatDropDown") as HTMLElement;
-stChatDropDOwn.addEventListener("click", handleStChat);
+let stChatDropDown: HTMLElement = document.getElementById("stChatDropDown") as HTMLElement;
+stChatDropDown.addEventListener("click", handleStChat);
 
 let studium: HTMLElement = document.getElementById("stchat") as HTMLElement;
 studium.addEventListener("click", handleStChat);
+
 let freizeit: HTMLElement = document.getElementById("fzchat") as HTMLElement;
 freizeit.addEventListener("click", handleFzChat);
 
-function handleStChat(): void {
+function handleStChat(): void {                             //rufen jeweilige Chatseite auf
     localStorage.setItem("Chat", "Studiumschat");
     location.href = "studiumschat.html";
 }

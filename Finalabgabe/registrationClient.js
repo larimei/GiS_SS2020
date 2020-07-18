@@ -16,6 +16,7 @@ var Finalabgabe;
             localStorage.setItem("Username", userNameValue);
         }
     }
+    //schaut ob Username schon vorhanden ist und ob Textfelder ausgefüllt sind
     function registrationValid(_userNameValue, _passwordValue, _notExisting, _error) {
         if (_userNameValue != "" && _passwordValue != "" && _notExisting != "false") {
             location.href = "chatseite.html";

@@ -1,7 +1,7 @@
 "use strict";
 var Finalabgabe;
 (function (Finalabgabe) {
-    if (localStorage.getItem("Username") == undefined) {
+    if (localStorage.getItem("Username") == undefined) { //prüft ob man angemeldet ist -> wenn nicht, wird man von Seite geschmissen
         location.href = "login.html";
     }
     let abmelden = document.getElementById("abmelden");
@@ -11,8 +11,8 @@ var Finalabgabe;
     });
     let fzChatDropDown = document.getElementById("fzChatDropDown");
     fzChatDropDown.addEventListener("click", handleFzChat);
-    let stChatDropDOwn = document.getElementById("stChatDropDown");
-    stChatDropDOwn.addEventListener("click", handleStChat);
+    let stChatDropDown = document.getElementById("stChatDropDown");
+    stChatDropDown.addEventListener("click", handleStChat);
     let studium = document.getElementById("stchat");
     studium.addEventListener("click", handleStChat);
     let freizeit = document.getElementById("fzchat");

@@ -1,11 +1,12 @@
 namespace Finalabgabe {
 
-    if (localStorage.getItem("Username") == undefined) {
+    if (localStorage.getItem("Username") == undefined) {   //schaut ob man angemeldet ist
         location.href = "login.html";
     }
 
     interface WholeMessage {
           username: string;
+          date: string;
           message: string;
     }
 
@@ -19,7 +20,7 @@ namespace Finalabgabe {
     let chat: string = "";
     let auslesen: string = "";
 
-    if (localStorage.getItem("Chat") == "Studiumschat") {
+    if (localStorage.getItem("Chat") == "Studiumschat") {        //zeigt in welchem Chat die Daten gespeichert werden
        chat = "/studiumSenden";
        auslesen = "/studiumAuslesen"; 
     }
@@ -28,10 +29,10 @@ namespace Finalabgabe {
        auslesen = "/freizeitAuslesen";
        }
 
-    console.log(localStorage.getItem("Chat"));
-
     let userName: HTMLInputElement = document.getElementById("studiumUsername") as HTMLInputElement;
     let name: string = <string>localStorage.getItem("Username");
+
+    let dateInput: HTMLInputElement = document.getElementById("date") as HTMLInputElement;
 
     let x: boolean = true;
 
@@ -49,7 +50,7 @@ namespace Finalabgabe {
     let stChatDropDOwn: HTMLElement = document.getElementById("stChatDropDown") as HTMLElement;
     stChatDropDOwn.addEventListener("click", handleStChat);
 
-    document.getElementById("smile")?.addEventListener("click", handleEmoji);
+    document.getElementById("smile")?.addEventListener("click", handleEmoji);    //Emojis
     document.getElementById("laugh")?.addEventListener("click", handleEmoji);
     document.getElementById("angel")?.addEventListener("click", handleEmoji);
     document.getElementById("blink")?.addEventListener("click", handleEmoji);
@@ -78,10 +79,16 @@ namespace Finalabgabe {
     }
 
     
-    setInterval(communicate, 1000);
+    setInterval(communicate, 1000);       //wird jede Sekunde aufgerufen -> dass neue Naxchrichten schnell geladen werden
+
+    setTimeout(function(): void { 
+        objDiv.scrollTop = 999999;
+   }, 
+               1100);
 
     async function handleSenden(): Promise<void> {
         userName.value = name;
+        dateInput.value = new Date().toLocaleString();
         let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
@@ -89,7 +96,10 @@ namespace Finalabgabe {
         await fetch(url + chat + "?" + query.toString());
     
         console.log("Daten gesendet");
-        objDiv.scrollTop = objDiv.scrollHeight;
+        setTimeout(function(): void {
+            objDiv.scrollTop = 999999;
+       }, 
+                   1010);
     }
 
     async function communicate(): Promise<void> {
@@ -108,11 +118,11 @@ namespace Finalabgabe {
 
         let leer: HTMLDivElement = document.createElement("div");
 
-        if (x == true) {
+        if (x == true) { 
             objDiv.appendChild(parent);
             }
         else {
-                parent.remove();
+                parent.remove();                      //neue Interfaces können nun geladen werden
                 parent = leer;
                 objDiv.appendChild(parent);
                 
@@ -123,20 +133,30 @@ namespace Finalabgabe {
         for (let i: number = 0; i < messageArray.length; i++) {
             let div: HTMLDivElement = document.createElement("div");
 
-            if (messageArray[i].username == <string>localStorage.getItem("Username"))
+            let pDate: HTMLParagraphElement = document.createElement("p");
+            pDate.innerHTML = messageArray[i].date;
+
+            if (messageArray[i].username == <string>localStorage.getItem("Username")) {           //findet raus, wer die angemeldete Person ist
             div.setAttribute("class", "eigenNachricht");
-            else
+            pDate.setAttribute("class", "eigenDate");
+         }
+            else {
             div.setAttribute("class", "fremdNachricht");
+            pDate.setAttribute("class", "fremdDate");
+            }
 
             let pUsername: HTMLParagraphElement = document.createElement("p");
             pUsername.innerHTML = messageArray[i].username;
             pUsername.setAttribute("class", "bothName");
             div.appendChild(pUsername);
 
+            div.appendChild(pDate);
+
             let pMessage: HTMLParagraphElement = document.createElement("p");
             pMessage.innerHTML = messageArray[i].message;
             pMessage.setAttribute("class", "bothMessage");
             div.appendChild(pMessage);
+
 
             parent.appendChild(div);
         }

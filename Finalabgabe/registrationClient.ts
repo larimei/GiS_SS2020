@@ -20,6 +20,8 @@ namespace Finalabgabe {
         }   
     }
 
+    //schaut ob Username schon vorhanden ist und ob Textfelder ausgefüllt sind
+
     function registrationValid(_userNameValue: string, _passwordValue: string, _notExisting: string, _error: string): boolean {
 
         if (_userNameValue != "" && _passwordValue != "" && _notExisting != "false") {

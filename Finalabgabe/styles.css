@@ -1,5 +1,4 @@
 body {                                                   /*für alle HTML-Seiten*/
-    width: 100%;
     background-image: url(Bilder/Hintergrund.jpg);
     text-align: center;
     margin: 0;
@@ -9,7 +8,6 @@ body {                                                   /*für alle HTML-Seiten
 }
 
 header {
-    width: 100%;
     height:100px;
     background-color: rgb(39, 4, 65);
     margin-bottom: 70px;
@@ -17,11 +15,36 @@ header {
 
 
 img[alt="Logo"] {
-    position: fixed;
-    margin-left: 28%;
+    width: 300px;
+    position: relative;
+    float: right;
+}
+
+img[alt="User"] {
+    width: 200px;
 }
 
 .titel {
+    position: absolute;
+    margin-left: 45%;
+    padding-top: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.titel2 {
+    position: absolute;
+    margin-left: 42%;
+    padding-top: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.titel3 {
+    position: absolute;
+    margin-left: 39%;
     padding-top: 40px;
     color: white;
     font-size: 40px;
@@ -198,6 +221,10 @@ footer {
     display: none;
 }
 
+#date {
+    display: none;
+}
+
 .senden {
     background-color: rgb(39, 4, 65);
     color: white;
@@ -237,6 +264,18 @@ footer {
     padding-bottom: 10px;
 }
 
+.eigenDate {
+    text-align: left;
+    margin-top: -30px;
+    margin-left: 5px;
+}
+
+.fremdDate {
+    text-align: right;
+    margin-top: -30px;
+    margin-right: 5px;
+}
+
 .eigenNachricht {
     display: block;
     color: black;
@@ -250,11 +289,12 @@ footer {
 .dropdown {       
     position: absolute;                /*Dropdown Menü*/
     display: inline-block;
-    margin-left: -45%;
-    margin-top: -5.1%;
+    margin-left: -35%;
+    margin-top: 13px;
     color: white;
     text-align: left;
     font-size: 30px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -327,9 +367,178 @@ footer {
     display: inline-block;
 }
 
-#lwchat:hover+img{
-    display: inline-block;
+
+@media screen and (max-width: 1024px) {
+    
+    .titel2 {
+        margin-left: 38%;
+    }
+    
+    .titel3 {
+        margin-left: 35%;
+    }
+
+    .dropdown {       
+        margin-left: -30%;
+        margin-top: 12px;
+    }
+
 }
+
+@media screen and (max-width: 850px) {
+
+    img[alt="Logo"] {
+        width: 200px;
+    }
+
+
+    .titel {
+        margin-left: 42%;
+    }
+
+    .loginbox {                                    /*speziell für Login & Registrierung*/
+        margin-top: -50px;
+    }
+    
+    
+    #errorLogin {
+        width: 130px;
+        margin-left: 180px;
+    }
+
+    #account {
+        margin-left: -75px;
+        margin-top: 20px;
+    }
+    
+    
+    .titel3 {
+        margin-left: 31%;
+    }
+
+    #error {
+        width: 150px;
+        margin-left: 200px;
+    }
+
+    .titel2 {                    /*für Chatseite*/
+        margin-left: 38%;
+    }
+
+    #chatBox {                          
+        width: 580px;
+     }
+     
+     .eingabe {
+         width: 580px;
+     }
+     
+     .emoji {
+         margin-left: 26.8%;
+     }
+     
+     .auswahl {
+         margin-left: 90px;
+     }
+     
+     
+     .senden {
+         margin-left: 38.8%;     
+     }
+}
+
+@media screen and (max-width: 600px) {
+    img[alt="Logo"] {
+        width: 200px;
+    }
+
+
+    .titel {
+        margin-left: 15px;
+        font-size: 30px;
+        margin-top: -25px;
+    }
+
+    #errorLogin {
+        width: 150px;
+        margin-left: 90px;
+    }
+   
+    #account {
+        margin-left: -190px;
+        margin-top: 20px;
+    }
+    
+    .titel3 {
+        margin-left: 15px;
+        font-size: 30px;
+        margin-top: -25px;
+    }
+
+    .loginbox {                                    /*speziell für Login & Registrierung*/
+        margin-left: 30px;
+    }
+
+    #error {
+        width: 150px;
+        margin-left: 100px;
+    }
+
+    .titel2 {                 /*für Chatseite*/
+        margin-left: 15px;
+        margin-top: -25px;
+        font-size: 30px;
+    }
+
+    .dropdown { 
+        margin-left: -25%;
+        margin-top: 30px;
+    }
+
+    .dropdownContent {
+        width: 180px;
+        height: 180px;
+    }
+
+    .dropdownContent button:hover {
+        margin-left: 20px;
+        width: 150px;
+    }
+
+    #chatBox {       
+        width: 400px;
+        margin-top: -50px;
+     }
+     
+     .eingabe {
+         width: 400px;
+     }
+     
+     .emoji {
+         margin-left: 16.5%;
+     }
+     
+     .auswahl {
+         margin-left: 0px;
+     }
+     
+     
+     .senden {
+         margin-left: 34%;     
+     }
+
+
+     .chat>img {
+        margin-left: -35%;
+        margin-top: -12%;
+        width: 130px;
+    }
+}
+
+
+
+
+
 
 
 
