@@ -73,7 +73,7 @@ var Finalabgabe;
         userName.value = name;
         dateInput.value = new Date().toLocaleString();
         let formData = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         await fetch(url + chat + "?" + query.toString());
@@ -87,7 +87,7 @@ var Finalabgabe;
             location.href = "login.html";
         }
         let formData = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://gissose20.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         let antwort = await fetch(url + auslesen + "?" + query.toString());
