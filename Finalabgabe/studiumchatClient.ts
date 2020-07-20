@@ -60,6 +60,16 @@ namespace Finalabgabe {
     document.getElementById("funny")?.addEventListener("click", handleEmoji);
     document.getElementById("party")?.addEventListener("click", handleEmoji);
     document.getElementById("beer")?.addEventListener("click", handleEmoji);
+    document.getElementById("cry")?.addEventListener("click", handleEmoji);    //Emojis
+    document.getElementById("cowboy")?.addEventListener("click", handleEmoji);
+    document.getElementById("think")?.addEventListener("click", handleEmoji);
+    document.getElementById("angry")?.addEventListener("click", handleEmoji);
+    document.getElementById("bruh")?.addEventListener("click", handleEmoji);
+    document.getElementById("champagne")?.addEventListener("click", handleEmoji);
+    document.getElementById("whisky")?.addEventListener("click", handleEmoji);
+    document.getElementById("cocktail")?.addEventListener("click", handleEmoji);
+    document.getElementById("poop")?.addEventListener("click", handleEmoji);
+    document.getElementById("saxophone")?.addEventListener("click", handleEmoji);
 
     let text: HTMLInputElement = document.getElementById("studiumText") as HTMLInputElement;
 
@@ -84,7 +94,7 @@ namespace Finalabgabe {
     setTimeout(function(): void { 
         objDiv.scrollTop = 999999;
    }, 
-               1100);
+               1300);
 
     async function handleSenden(): Promise<void> {
         userName.value = name;

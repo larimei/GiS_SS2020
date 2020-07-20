@@ -42,6 +42,16 @@ var Finalabgabe;
     document.getElementById("funny")?.addEventListener("click", handleEmoji);
     document.getElementById("party")?.addEventListener("click", handleEmoji);
     document.getElementById("beer")?.addEventListener("click", handleEmoji);
+    document.getElementById("cry")?.addEventListener("click", handleEmoji); //Emojis
+    document.getElementById("cowboy")?.addEventListener("click", handleEmoji);
+    document.getElementById("think")?.addEventListener("click", handleEmoji);
+    document.getElementById("angry")?.addEventListener("click", handleEmoji);
+    document.getElementById("bruh")?.addEventListener("click", handleEmoji);
+    document.getElementById("champagne")?.addEventListener("click", handleEmoji);
+    document.getElementById("whisky")?.addEventListener("click", handleEmoji);
+    document.getElementById("cocktail")?.addEventListener("click", handleEmoji);
+    document.getElementById("poop")?.addEventListener("click", handleEmoji);
+    document.getElementById("saxophone")?.addEventListener("click", handleEmoji);
     let text = document.getElementById("studiumText");
     function handleEmoji(_event) {
         let emoji = _event.target;
@@ -58,7 +68,7 @@ var Finalabgabe;
     setInterval(communicate, 1000); //wird jede Sekunde aufgerufen -> dass neue Naxchrichten schnell geladen werden
     setTimeout(function () {
         objDiv.scrollTop = 999999;
-    }, 1100);
+    }, 1300);
     async function handleSenden() {
         userName.value = name;
         dateInput.value = new Date().toLocaleString();
