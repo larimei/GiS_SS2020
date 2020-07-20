@@ -9,7 +9,7 @@ namespace Finalabgabe {
         let passwordValue: string = (<HTMLInputElement>document.getElementById("passwordLogin")).value;
     
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gissose20.herokuapp.com";
+        let url: string = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         let response: Response = await fetch(url  + "/login" + "?" + query.toString());

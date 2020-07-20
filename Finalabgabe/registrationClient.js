@@ -7,7 +7,7 @@ var Finalabgabe;
         let userNameValue = document.getElementById("username").value;
         let passwordValue = document.getElementById("password").value;
         let formData = new FormData(document.forms[0]);
-        let url = "https://gissose20.herokuapp.com";
+        let url = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         let response = await fetch(url + "/registration" + "?" + query.toString());
